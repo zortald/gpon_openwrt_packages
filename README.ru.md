@@ -26,10 +26,10 @@ English: [README.md](README.md) — там же раскладка флеша и
 
 | | G-1425-MA | G-140W-C | G-1426-MA |
 |---|---|---|---|
-| Релиз | [v40](https://github.com/zortald/gpon_openwrt_packages/releases/tag/v40) | [g140w-c-v2.8](https://github.com/zortald/gpon_openwrt_packages/releases/tag/g140w-c-v2.8) (предварительный: установка со стока на этой модели ещё не проверена) | [g1426ma-v8](https://github.com/zortald/gpon_openwrt_packages/releases/tag/g1426ma-v8) |
-| Установка со стока | [g1425-openwrt-v40-web-upgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/v40/g1425-openwrt-v40-web-upgrade.bin) | [g140w-c-openwrt-v2.8-web-upgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/g140w-c-v2.8/g140w-c-openwrt-v2.8-web-upgrade.bin) | [g1426-openwrt-v8-web-upgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/g1426ma-v8/g1426-openwrt-v8-web-upgrade.bin) |
-| Предварительный релиз (на этой модели ещё не проверен) | [v43](https://github.com/zortald/gpon_openwrt_packages/releases/tag/v43): аппаратный NAT, быстрее Ethernet и Wi-Fi (проверено на G-140W-C); [v41](https://github.com/zortald/gpon_openwrt_packages/releases/tag/v41): калибровка 5 ГГц из стока, usteer, первый `sysupgrade` | — | — |
-| Обновление из OpenWrt | — (переустановка со стока; `sysupgrade` начиная с v41) | [g140w-c-openwrt-v2.8-sysupgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/g140w-c-v2.8/g140w-c-openwrt-v2.8-sysupgrade.bin) (`sysupgrade`) | [g1426-openwrt-v8-sysupgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/g1426ma-v8/g1426-openwrt-v8-sysupgrade.bin) (`sysupgrade -n`) |
+| Релиз | [v40](https://github.com/zortald/gpon_openwrt_packages/releases/tag/v40) | [g140w-c-v2.9](https://github.com/zortald/gpon_openwrt_packages/releases/tag/g140w-c-v2.9) | [g1426ma-v8](https://github.com/zortald/gpon_openwrt_packages/releases/tag/g1426ma-v8) |
+| Установка со стока | [g1425-openwrt-v40-web-upgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/v40/g1425-openwrt-v40-web-upgrade.bin) | [g140w-c-openwrt-v2.9-web-upgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/g140w-c-v2.9/g140w-c-openwrt-v2.9-web-upgrade.bin) | [g1426-openwrt-v8-web-upgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/g1426ma-v8/g1426-openwrt-v8-web-upgrade.bin) |
+| Предварительный релиз (на этой модели ещё не проверен) | [v44](https://github.com/zortald/gpon_openwrt_packages/releases/tag/v44): калибровка 2,4 ГГц из стока (проверено на G-140W-C); [v43](https://github.com/zortald/gpon_openwrt_packages/releases/tag/v43): аппаратный NAT, быстрее Ethernet и Wi-Fi (проверено на G-140W-C); [v41](https://github.com/zortald/gpon_openwrt_packages/releases/tag/v41): калибровка 5 ГГц из стока, usteer, первый `sysupgrade` | — | — |
+| Обновление из OpenWrt | — (переустановка со стока; `sysupgrade` начиная с v41) | [g140w-c-openwrt-v2.9-sysupgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/g140w-c-v2.9/g140w-c-openwrt-v2.9-sysupgrade.bin) (`sysupgrade`) | [g1426-openwrt-v8-sysupgrade.bin](https://github.com/zortald/gpon_openwrt_packages/releases/download/g1426ma-v8/g1426-openwrt-v8-sysupgrade.bin) (`sysupgrade -n`) |
 
 ## Железо
 
@@ -94,7 +94,7 @@ dd if=/dev/mtd8 bs=16 count=1 2>/dev/null | hexdump -C
 | Папка | Модель | Архитектура | Прошивка |
 |---|---|---|---|
 | [af8c55194775dcae215a7df4c97d3160](af8c55194775dcae215a7df4c97d3160/) | G-1425-MA | `mips_24kc` | v38–v40 |
-| [7d991811584158991fd8b3ea9fb13c0b](7d991811584158991fd8b3ea9fb13c0b/) | G-1425-MA, G-140W-C | `mips_24kc` | v41, v43, g140w-c-v2.8 |
+| [7d991811584158991fd8b3ea9fb13c0b](7d991811584158991fd8b3ea9fb13c0b/) | G-1425-MA, G-140W-C | `mips_24kc` | v41, v43, v44, g140w-c-v2.8, g140w-c-v2.9 |
 | [6f45af18e396b5d378e1a1baaebc5a16](6f45af18e396b5d378e1a1baaebc5a16/) | G-1426-MA | `mipsel_24kc` | g1426ma-v5, v6, v8 |
 
 ## Ограничения
@@ -103,7 +103,7 @@ dd if=/dev/mtd8 bs=16 count=1 2>/dev/null | hexdump -C
 |---|---|---|---|
 | GPON | не работает | не работает | не работает |
 | Процессор | одно ядро | одно ядро (со вторым система зависает) | все четыре потока |
-| Обновление | переустановка через веб стока; `sysupgrade` с v41 (предварительные v41, v43) | `sysupgrade` | `sysupgrade` |
+| Обновление | переустановка через веб стока; `sysupgrade` с v41 (предварительные v41, v43, v44) | `sysupgrade` | `sysupgrade` |
 | Прочее | — | телефонные порты не работают | телефонный порт не работает |
 
 ## Вернуться в сток
