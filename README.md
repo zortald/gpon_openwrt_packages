@@ -69,9 +69,23 @@ The images never touch the bootloader or the stock partitions.
 
 | | G-1425-MA | G-140W-C | G-1426-MA |
 |---|---|---|---|
-| Stock runs from | bank A | bank A | bank B |
+| Stock runs from | bank A (required, see below) | bank A (required, see below) | bank B |
 | OpenWrt goes to | bank B | bank B | bank A |
 | What the stock updater checks | header and CRC | header and CRC (same updater as G-1425-MA) | header, CRC, board ID / part number in the image |
+
+**G-1425-MA and G-140W-C: install only while stock runs from bank A.** The OpenWrt image for
+these two works from bank B only. If stock runs from bank B (seen after an ISP update), the
+stock updater writes OpenWrt into bank A, it never comes up, and after about two minutes the
+bootloader returns to stock; nothing is lost, but OpenWrt is not installed. Check first, from
+the stock telnet shell:
+
+```
+dd if=/dev/mtd8 bs=16 count=1 2>/dev/null | hexdump -C
+```
+
+The first word `00 00 00 00` means bank A (fine), `00 00 00 01` means bank B (do not install).
+With stock in bank B, `dd if=/dev/mtd4 bs=64 count=1 | hexdump -C` also shows the stock
+version string. Installing to bank A is not supported yet.
 
 ## Defaults
 
